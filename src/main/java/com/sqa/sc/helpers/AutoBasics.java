@@ -106,6 +106,17 @@ public class AutoBasics {
 		return elementTexts;
 	}
 
+	public static boolean isElementPresent(WebDriver driver, By locator, Logger logger) {
+		try {
+			driver.findElement(locator);
+		} catch (Exception e) {
+			logger.warn("Element " + locator + " was not located on page " + driver.getTitle());
+			return false;
+		}
+		logger.info("Element " + locator + " located on page " + driver.getTitle() + " successfully.");
+		return true;
+	}
+
 	public static boolean takeScreenshot(WebDriver driver) {
 		return takeScreenshot(driver, DEFAULT_SCREENSHOT_SAVE_LOCATION, DEFAULT_SCREENSHOT_FILENAME, null);
 	}

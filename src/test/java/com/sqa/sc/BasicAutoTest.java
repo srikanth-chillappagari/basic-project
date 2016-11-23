@@ -60,6 +60,10 @@ public class BasicAutoTest {
 		return this.log;
 	}
 
+	public boolean isPresent(By locator) {
+		return AutoBasics.isElementPresent(getDriver(), locator, getLog());
+	}
+
 	@BeforeClass(enabled = false, groups = { "chrome-setup" })
 	public void setupChrome() {
 		// Setup test
